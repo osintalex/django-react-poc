@@ -1,0 +1,28 @@
+# Reference https://docs.docker.com/compose/compose-file/compose-file-v3/
+
+version: '3.9'
+
+services:
+  db:
+    image: postgres
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: thisisabadpasswordresetforproduction
+  django:
+    build: ./django-cti-react/django-backend
+    command: ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+    volumes:
+      - ./django-cti-react/django-backend:/app/django-backend
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+  frontend:
+    build: ./django-cti-react/react-frontend
+    command: ["npm", "start"]
+    volumes:
+      - ./django-cti-react/react-frontend:/app/react-frontend
+    ports:
+      - "3000:3000"
