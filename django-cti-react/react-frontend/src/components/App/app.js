@@ -69,7 +69,7 @@ export default function App() {
                 onOpen();
                 setText({
                   title: "Download Some JSON",
-                  body: "This is just an example of how to get some data from Django.",
+                  body: "This is just an example of how to get some data from Django",
                   uploadInstruction: "Download",
                 });
               }}
