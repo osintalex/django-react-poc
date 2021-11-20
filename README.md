@@ -1,4 +1,4 @@
-![Landing](.img/ctiformats.png)
+![Landing](.img/ctiformats.gif)
 
 # Overview
 
