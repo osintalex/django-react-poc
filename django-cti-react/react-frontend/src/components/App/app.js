@@ -31,61 +31,60 @@ export default function App() {
               onClick={() => {
                 onOpen();
                 setText({
-                  title: "Convert STIX to STIX 2",
-                  body: "Conversion",
-                  uploadInstruction: "Upload STIX XML",
-                  requestType: "post"
+                  title: "Convert STIX 2 to elasticsearch",
+                  body: "Convert STIX 2 JSON to elasticsearch",
+                  uploadInstruction: "Upload STIX 2 JSON",
+                  label: "Paste STIX 2 data here",
+                  pasteInstruction: "Your STIX 2 JSON data goes here",
                 });
               }}
             >
-              STIX to STIX 2
-            </Button>
-            <Button colorScheme="pink" variant="outline" onClick={() => {
-                onOpen();
-                setText({
-                  title: "Convert STIX2 to elasticsearch",
-                  body: "Conversion",
-                  uploadInstruction: "Upload STIX XML",
-                  requestType: "post"
-                });
-              }}
-              >
               STIX 2 to elasticsearch
             </Button>
-            <Button colorScheme="pink" variant="outline" onClick={() => {
+            <Button
+              colorScheme="pink"
+              variant="outline"
+              onClick={() => {
                 onOpen();
                 setText({
-                  title: "Convert JSON to STIX2",
-                  body: "Conversion to STIX observable objects",
-                  uploadInstruction: "Upload JSON file",
-                  requestType: "post"
+                  title: "Convert JSON to STIX 2",
+                  body: "Conversion to STIX 2 observable objects",
+                  uploadInstruction: "Upload JSON",
+                  label: "Paste JSON here",
+                  pasteInstruction: "Your JSON goes here",
                 });
               }}
-              >
+            >
               JSON to STIX 2
             </Button>
-            <Button colorScheme="pink" variant="outline" onClick={() => {
+            <Button
+              colorScheme="pink"
+              variant="outline"
+              onClick={() => {
                 onOpen();
                 setText({
                   title: "Convert STIX to Native Data Source",
-                  body: "Convert STIX to a native data source query such as SQL",
-                  uploadInstruction: "Upload STIX XML",
-                  requestType: "post"
+                  body: "Convert STIX to a Native Data source query such as SQL",
+                  uploadInstruction: "Upload STIX 2 JSON or STIX 1 XML",
+                  label: "Paste STIX here",
+                  pasteInstruction: "Your STIX 1 or STIX 2 XML goes here",
                 });
               }}
-              >
-              STIX to Native Data Source Query
+            >
+              STIX to SQL
             </Button>
-            <Button colorScheme="pink" variant="outline" onClick={() => {
+            <Button
+              colorScheme="pink"
+              variant="outline"
+              onClick={() => {
                 onOpen();
                 setText({
                   title: "Download Some JSON",
                   body: "This doesn't really make sense but is just an example of how to get data form Django",
                   uploadInstruction: "Download",
-                  requestType: "get"
                 });
               }}
-              >
+            >
               Example STIX data
             </Button>
             <GeneralConversionModal
@@ -95,6 +94,8 @@ export default function App() {
               body={text.body}
               uploadInstruction={text.uploadInstruction}
               requestType={text.requestType}
+              label={text.label}
+              pasteInstruction={text.pasteInstruction}
             />
           </Stack>
         </VStack>

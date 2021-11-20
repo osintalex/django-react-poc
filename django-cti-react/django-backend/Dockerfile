@@ -1,4 +1,4 @@
-FROM python:3.10.0-slim-buster
+FROM python:3.6-slim-buster
 
 RUN apt-get update
 # Add dependcies for pyscopg2, which django uses to connect to postgres sql database

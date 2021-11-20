@@ -1,5 +1,6 @@
 import { Box, Heading, VStack } from "@chakra-ui/react";
 import React from "react";
+import { Gradient } from "react-gradient";
 
 export default function IntroText() {
   return (
@@ -11,14 +12,23 @@ export default function IntroText() {
         textAlign="center"
       >
         <Box>
-          <Heading
-            fontFamily="body"
-            bgClip="text"
-            size="2xl"
-            bgGradient="linear(to-r, green.200, pink.500)"
+          <Gradient
+            gradients={[
+              ["#FFFD00", "#9CA2FF"],
+              ["#FF47F4", "#6DFF5C"],
+              ["lime", "coral"],
+              ["magenta", "gold"],
+              ["violet", "royalblue"],
+            ]}
+            property="text"
+            angle="30deg"
+            className="text"
+            duration={3000}
           >
-            Convert CTI Formats
-          </Heading>
+            <Heading fontFamily="body" bgClip="text" size="2xl">
+              Convert CTI Formats
+            </Heading>
+          </Gradient>
         </Box>
       </VStack>
     </>
