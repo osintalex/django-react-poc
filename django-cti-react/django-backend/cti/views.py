@@ -8,26 +8,25 @@ from stix_shifter.stix_translation import stix_translation
 
 # Create your views here.
 
-
 @api_view(['GET', 'POST'])
 def hello_world(request):
     if request.method == 'POST':
         
         # STIX 2 to elasticsearch
-        if request['data']['label'] == 'Paste STIX 2 data here':
-            converted = translate(request['data']['stix'], SearchPlatforms.ELASTIC, DataModels.CAR)
+        if request.data['label'] == 'Paste STIX 2 data here':
+            converted = translate(request.data['stix'], SearchPlatforms.ELASTIC, DataModels.CAR)
             return Response({"message": "Conversion complete!", "data": converted})
 
         # JSON to STIX
-        if request['data']['label'] == 'Paste JSON here':
+        if request.data['label'] == 'Paste JSON here':
             translation = stix_translation.StixTranslation()
-            converted = translation.translate('translate', 'qradar', 'results', request['data']['stix'])
+            converted = translation.translate('qradar', 'results', '{}', request.data['stix'])
             return Response({"message": "Conversion complete!", "data": converted})
 
         # STIX to SQL
-        if request['data']['label'] == 'Paste STIX here':
+        if request.data['label'] == 'Paste STIX here':
             translation = stix_translation.StixTranslation()
-            converted = translation.translate('translate', 'MySQL', 'query', request['data']['stix'])
+            converted = translation.translate('mysql', 'query', '{}', request.data['stix'])
             return Response({"message": "Conversion complete!", "data": converted})
     return Response({"message": "Hello, world!"})
 

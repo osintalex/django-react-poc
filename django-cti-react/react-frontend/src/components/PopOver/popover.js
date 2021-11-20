@@ -8,14 +8,21 @@ import {
   PopoverArrow,
   PopoverCloseButton,
 } from "@chakra-ui/react";
-import { AttachmentIcon } from "@chakra-ui/icons";
 import { useRef } from "react";
 import ConversionForm from "../Form/form.js";
 
+/**
+ * Pop Over for pasting the STIX and other data sources
+ * @param {Object} props string data on different instructions for the form
+ * @returns {React Component} different popover components for data conversion and download
+ */
 export default function PopOverForm(props) {
   const { onOpen, onClose, isOpen } = useDisclosure();
   const firstFieldRef = useRef(null);
 
+  /**
+   * Handles connecting to django backend forgetting data from the database.
+   */
   function handleClick() {
     fetch("http://localhost:8000/api/stix/")
       .then((response) => {
@@ -41,7 +48,7 @@ export default function PopOverForm(props) {
           closeOnBlur={false}
         >
           <PopoverTrigger>
-            <Button d="inline-block" mr={3} leftIcon={<AttachmentIcon />}>
+            <Button d="inline-block" mr={3}>
               {props.uploadInstruction}
             </Button>
           </PopoverTrigger>
@@ -72,7 +79,6 @@ export default function PopOverForm(props) {
           <Button
             d="inline-block"
             mr={3}
-            leftIcon={<AttachmentIcon />}
             onClick={handleClick}
           >
             {props.uploadInstruction}

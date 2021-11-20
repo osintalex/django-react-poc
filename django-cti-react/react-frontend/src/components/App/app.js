@@ -11,6 +11,11 @@ import { ColourModeSwitcher } from "../ColourModeSwitcher/colourModeSwitcher.js"
 import IntroText from "../IntroText/introText.js";
 import GeneralConversionModal from "../Modal/modal.js";
 
+/**
+ * The App! Starts here with different buttons to trigger conversion formats, which then go to modals
+ * and then onto popovers before communciating with the backend
+ * @returns App Component!
+ */
 export default function App() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [text, setText] = useState({
@@ -33,7 +38,7 @@ export default function App() {
                 setText({
                   title: "Convert STIX 2 to elasticsearch",
                   body: "Convert STIX 2 JSON to elasticsearch",
-                  uploadInstruction: "Upload STIX 2 JSON",
+                  uploadInstruction: "Let's go!",
                   label: "Paste STIX 2 data here",
                   pasteInstruction: "Your STIX 2 JSON data goes here",
                 });
@@ -47,25 +52,9 @@ export default function App() {
               onClick={() => {
                 onOpen();
                 setText({
-                  title: "Convert JSON to STIX 2",
-                  body: "Conversion to STIX 2 observable objects",
-                  uploadInstruction: "Upload JSON",
-                  label: "Paste JSON here",
-                  pasteInstruction: "Your JSON goes here",
-                });
-              }}
-            >
-              JSON to STIX 2
-            </Button>
-            <Button
-              colorScheme="pink"
-              variant="outline"
-              onClick={() => {
-                onOpen();
-                setText({
-                  title: "Convert STIX to Native Data Source",
-                  body: "Convert STIX to a Native Data source query such as SQL",
-                  uploadInstruction: "Upload STIX 2 JSON or STIX 1 XML",
+                  title: "Convert STIX to SQL",
+                  body: "Convert STIX to a a MySQL query",
+                  uploadInstruction: "Let's go!",
                   label: "Paste STIX here",
                   pasteInstruction: "Your STIX 1 or STIX 2 XML goes here",
                 });
@@ -80,7 +69,7 @@ export default function App() {
                 onOpen();
                 setText({
                   title: "Download Some JSON",
-                  body: "This doesn't really make sense but is just an example of how to get data form Django",
+                  body: "This is just an example of how to get some data from Django.",
                   uploadInstruction: "Download",
                 });
               }}

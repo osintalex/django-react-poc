@@ -2,6 +2,10 @@ import { Box, Heading, VStack } from "@chakra-ui/react";
 import React from "react";
 import { Gradient } from "react-gradient";
 
+/**
+ * Makes some gradient changing intro text for the landing page
+ * @returns same as the above!
+ */
 export default function IntroText() {
   return (
     <>
