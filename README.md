@@ -1,4 +1,6 @@
-![Landing](.img/ctiformats.gif)
+<p align="center">
+  <img src=".img/ctiformats.gif" alt="animated" />
+</p>
 
 # Overview
 
